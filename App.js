@@ -1,0 +1,11 @@
+const express=require('express')
+const server=express()
+const cors=require('cors')
+require('./Db/Connection.js')
+server.use(express.json())
+server.use(cors())
+server.use('/api',require('./Routes/UserRoutes.js'))
+server.use('/emp',require('./Routes/EmpRoutes.js'))
+server.listen(8052,()=>{
+  console.log("server running at :http://localhost:8052")
+})
